@@ -26,7 +26,7 @@ type AddressInfo = {
 };
 
 const addressTypes: { [key: number]: { type: AddressType; network: Network } } = {
-  0x00: {
+  0x19: {
     type: AddressType.p2pkh,
     network: Network.mainnet,
   },
@@ -36,7 +36,7 @@ const addressTypes: { [key: number]: { type: AddressType; network: Network } } =
     network: Network.testnet,
   },
 
-  0x05: {
+  0x16: {
     type: AddressType.p2sh,
     network: Network.mainnet,
   },
@@ -51,7 +51,7 @@ const parseBech32 = (address: string): AddressInfo => {
   let decoded;
 
   try {
-    if (address.startsWith('bc1p') || address.startsWith('tb1p') || address.startsWith('bcrt1p')) {
+    if (address.startsWith('bit1p') || address.startsWith('tb1p') || address.startsWith('bcrt1p')) {
       decoded = bech32m.decode(address);
     } else {
       decoded = bech32.decode(address);
@@ -101,7 +101,7 @@ const getAddressInfo = (address: string): AddressInfo => {
   let decoded: Uint8Array;
   const prefix = address.substr(0, 2).toLowerCase();
 
-  if (prefix === 'bc' || prefix === 'tb') {
+  if (prefix === 'bit' || prefix === 'tb') {
     return parseBech32(address);
   }
 
