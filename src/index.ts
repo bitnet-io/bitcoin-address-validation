@@ -26,7 +26,7 @@ type AddressInfo = {
 };
 
 const addressTypes: { [key: number]: { type: AddressType; network: Network } } = {
-  0x19: {
+  0x00: {
     type: AddressType.p2pkh,
     network: Network.mainnet,
   },
@@ -36,7 +36,7 @@ const addressTypes: { [key: number]: { type: AddressType; network: Network } } =
     network: Network.testnet,
   },
 
-  0x16: {
+  0x05: {
     type: AddressType.p2sh,
     network: Network.mainnet,
   },
